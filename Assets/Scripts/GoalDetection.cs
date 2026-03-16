@@ -4,6 +4,8 @@ public class GoalDetection : MonoBehaviour
 {
     [SerializeField]
     private HUDView HUD;
+    [SerializeField]
+    private AudioSource goalSound;
 
     private int numberOfGoals;
 
@@ -11,7 +13,7 @@ public class GoalDetection : MonoBehaviour
     {
         if (other.CompareTag(ProjectUtilities.BALL_TAG))
         {
-            Debug.Log("GOAL!");
+            goalSound.Play();
             numberOfGoals++;
             HUD.UpdateScore(numberOfGoals);
         }
